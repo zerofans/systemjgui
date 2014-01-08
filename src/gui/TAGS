@@ -1,0 +1,145 @@
+
+mainwindow/ElementsPane.java,615
+package gui.mainwindow;gui.mainwindow1,0
+public class ElementsPane extends JPanel implements ChangeListener {ElementsPane26,938
+	private JPanel buttonPanel;buttonPanel28,1011
+	private static ButtonGroup buttonGroup;buttonGroup29,1041
+	public ElementsPane(ActionListener[] canvas) {ElementsPane32,1089
+	private JPanel createCDViewPanel(ActionListener canvas) {createCDViewPanel58,2123
+	private JPanel createSSViewPanel(ActionListener canvas) {createSSViewPanel95,3581
+	public void stateChanged(ChangeEvent event) {stateChanged121,4588
+	public static void deselectButtons() {deselectButtons140,5337
+
+mainwindow/MainApplication.java,575
+package gui.mainwindow;gui.mainwindow1,0
+public class MainApplication extends JFrame {MainApplication35,972
+  private JPanel contentPane;contentPane37,1021
+  private PropertiesPanel propertiesPanel;propertiesPanel38,1052
+  private TopMenuBar menuBar;menuBar40,1098
+  private ClockDomainViewCanvas clockDomainCanvas;clockDomainCanvas41,1129
+  private SubSystemViewCanvas subSystemCanvas;subSystemCanvas42,1181
+  private XMLView xmlView;xmlView43,1229
+  public static void main(String[] args) {main48,1303
+  public MainApplication() {MainApplication64,1660
+
+mainwindow/PackagesPanel.java,202
+package gui.mainwindow;gui.mainwindow1,0
+public class PackagesPanel extends JPanel {PackagesPanel17,541
+	private JTree packageTree;packageTree19,589
+	public PackagesPanel() {PackagesPanel21,621
+
+mainwindow/TabPanel.java,295
+package gui.mainwindow;gui.mainwindow1,0
+public class TabPanel extends JPanel {TabPanel18,477
+	private JTabbedPane tabbedPane;tabbedPane20,520
+	public TabPanel(List<JComponent> tabs, List<String> tabNames) {TabPanel29,798
+	public void addListener(ChangeListener l) {addListener51,1462
+
+mainwindow/TopMenuBar.java,787
+package gui.mainwindow;gui.mainwindow1,0
+public class TopMenuBar extends JMenuBar implements ActionListener {TopMenuBar29,738
+	private JMenu fileMenu;fileMenu31,811
+	private static final String NEW_OPTION = "New";NEW_OPTION33,840
+	private static final String LOAD_OPTION = "Load Existing File";LOAD_OPTION34,890
+	private static final String SAVE_OPTION = "Save XML File";SAVE_OPTION35,956
+	public TopMenuBar() {TopMenuBar38,1023
+	public void saveAsXML() {saveAsXML65,2130
+	public void loadXMLFile() {loadXMLFile101,3502
+	public void actionPerformed(ActionEvent event) {actionPerformed122,4159
+	private class XMLFilter extends FileFilter {XMLFilter142,4773
+		public boolean accept(File f) {accept145,4835
+		public String getDescription() {getDescription155,5035
+
+mainwindow/StructurePanel.java,424
+package gui.mainwindow;gui.mainwindow1,0
+public class StructurePanel extends JPanel implements ActionListener {StructurePanel33,1240
+	private JTree structureTree;structureTree35,1315
+	private TreeModel structureModel;structureModel36,1346
+	public StructurePanel() {StructurePanel38,1385
+	public TreeModel createTree() {createTree55,1949
+	public void actionPerformed(ActionEvent event) {actionPerformed119,4368
+
+mainwindow/PropertiesPanel.java,381
+package gui.mainwindow;gui.mainwindow1,0
+public class PropertiesPanel extends JPanel implements mxIEventListener {PropertiesPanel38,1230
+	private JTable propertiesTable;propertiesTable40,1307
+	private DefaultTableModel tableModel;tableModel41,1341
+	public PropertiesPanel() {PropertiesPanel43,1383
+	public void invoke(Object sender, mxEventObject event) {invoke67,2353
+
+tabs/ClockDomainViewCanvas.java,979
+package gui.tabs;gui.tabs1,0
+public class ClockDomainViewCanvas extends mxGraphComponent implements ActionListener {ClockDomainViewCanvas35,1123
+	private mxCell selectedComponent;selectedComponent36,1212
+	private String selectedMode;selectedMode37,1248
+	public ClockDomainViewCanvas() {ClockDomainViewCanvas39,1281
+	public void handleMouseEvent(MouseEvent event) {handleMouseEvent80,2988
+	public void addSignal(Signal s, mxCell clockDomain) {addSignal147,6187
+	public mxCell getSelectedComponent() {getSelectedComponent178,7189
+	public void addClockDomain(ClockDomain cd, int x, int y, SubSystem sub) {addClockDomain194,7687
+	public void actionPerformed(ActionEvent event) {actionPerformed209,8300
+	public void addChannel(Channel ch, mxCell cdFrom, mxCell cdTo, String fromName, String toName) {addChannel223,8831
+	public void resetCompSelection() {resetCompSelection240,9504
+	public void editComponent(mxCell selectedComponent) {editComponent252,10034
+
+tabs/SubSystemViewCanvas.java,756
+package gui.tabs;gui.tabs1,0
+public class SubSystemViewCanvas extends mxGraphComponent implements ActionListener {SubSystemViewCanvas37,1284
+	private mxCell selectedComponent;selectedComponent38,1371
+	private String selectedMode;selectedMode39,1407
+	public SubSystemViewCanvas() {SubSystemViewCanvas41,1440
+	public void handleMouseEvent(MouseEvent event) {handleMouseEvent83,3006
+	public mxCell getSelectedComponent() {getSelectedComponent127,4738
+	public void addSubSystem(SubSystem ss, int x, int y) {addSubSystem142,5175
+	public void actionPerformed(ActionEvent event) {actionPerformed158,5872
+	public void addLinkGroup(LinkGroup l) {addLinkGroup167,6118
+	public void editComponent(mxCell selectedComponent) {editComponent206,7769
+
+tabs/popups/ComponentPopup.java,2619
+package gui.tabs.popups;gui.tabs.popups1,0
+public class ComponentPopup extends JDialog implements ActionListener {ComponentPopup47,1549
+	private static final String CREATE_TITLE = "Create new ";CREATE_TITLE48,1622
+	private static final String EDIT_TITLE = "Edit ";EDIT_TITLE49,1682
+	private String componentType;componentType50,1734
+	private Component componentCreated;componentCreated51,1766
+	private JPanel contentPanel;contentPanel53,1806
+	private JTextField nameTextField;nameTextField56,1864
+	private JTextField classTextField;classTextField59,1938
+	private JComboBox subSystemBox;subSystemBox62,2001
+	private JComboBox<IOType> ioTypes;ioTypes65,2060
+	private List<JTextField> keys;keys66,2097
+	private List<JTextField> values;values67,2130
+	private int parameterRowOffset;parameterRowOffset68,2165
+	private JComboBox<Object> clockDomainFrom;clockDomainFrom71,2225
+	private JComboBox<Object> clockDomainTo;clockDomainTo72,2270
+	private JTextField channelFromName;channelFromName73,2313
+	private JTextField channelToName;channelToName74,2351
+	private JComboBox<LinkType> linkTypes;linkTypes78,2413
+	private List<JComboBox<Object>> subSystemComboBoxes;subSystemComboBoxes79,2454
+	private List<JTextField> classTextBoxes;classTextBoxes80,2509
+	private List<JTextField> interfaceTextBoxes;interfaceTextBoxes81,2552
+	private List<JTextField> argumentsTextBoxes;argumentsTextBoxes82,2599
+	private void constructPopup(String componentType, int x, int y) {constructPopup87,2684
+	public ComponentPopup(JFrame jFrame, String componentType, int x, int y) {ComponentPopup147,4898
+	public ComponentPopup(JFrame jFrame, Component comp, int x, int y) {ComponentPopup161,5412
+	public void actionPerformed(ActionEvent event) {actionPerformed178,6071
+	public SubSystem getSelectedSubSystem() {getSelectedSubSystem250,9117
+	private void addAnotherSignalParameter() {addAnotherSignalParameter258,9426
+	public JPanel createClockDomainPanel() {createClockDomainPanel300,10920
+	public JPanel createChannelPanel() {createChannelPanel370,13800
+	public JPanel createLinkPanel() {createLinkPanel468,17781
+	public JPanel addNewInterface(JPanel linkPanel) {addNewInterface555,21125
+	public JPanel createSubSystemPanel() {createSubSystemPanel659,25237
+	public JPanel createSignalPanel() {createSignalPanel715,27409
+	public Component getComponent() {getComponent825,31684
+	public String getChannelFromName() {getChannelFromName830,31758
+	public String getChannelToName() {getChannelToName834,31841
+	public void populateFields(Component comp) {populateFields842,32025
+
+tabs/XMLView.java,298
+package gui.tabs;gui.tabs1,0
+public class XMLView extends JPanel implements ActionListener{XMLView22,568
+	private JTextArea xmlArea;xmlArea23,632
+	public XMLView() {XMLView25,664
+	public void setXML() {setXML37,981
+	public void actionPerformed(ActionEvent arg0) {actionPerformed44,1160
